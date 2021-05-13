@@ -27,8 +27,12 @@
             font-family : 'Nanum Barun Gothic', sans-serif;
         }
         .header{
-            width      : 90vw;
-            margin     : 1vh auto;
+            width     : 90vw;
+            display   : inline-flex;
+            justify-content : space-between;
+            position  : fixed;
+            left      : 5vw;
+            bottom    : 87vh;
         }
         .model_block {
             width     : 90vw; 
@@ -45,7 +49,7 @@
         }
         .model_block #model_viewer #ar_btn {
             position         : absolute;
-            bottom           : 21vh;
+            bottom           : 1vh;
             right            : 1vh;
             background-color : white;
             border-radius    : 10px; 
@@ -53,14 +57,15 @@
             font-size        : large;
         }
         .model_block #description{
-            width            : 90vw; 
+            width            : 86vw; 
             height           : 20vh; 
             position         : absolute;
-            margin-top       : 50vh;
+            margin-top       : 0vh;
+            padding          : 0px 2vw;
             background-color : #0003;
             overflow-x       : hidden;
             overflow-y       : auto;
-            font-size        : large;
+            font-size        : x-large;
         }
         .footer_container {
             width       : 100%;
@@ -93,9 +98,9 @@
 <body>
     <div class="header">
         <a href="{% url 'index' %}"> 
-            <img id="swm_bi" src="/media/assets/img/SWM_BI.jpg" style="height:5vh;"/>
+            <img id="swm_bi" src="/media/assets/icon/Back.jpg" style="height:3em;"/>
         </a>
-        <p>K - 자연사 박물관</p>
+        <h1 style="margin: auto; display:inline-block;">자연사 박물관</h1>
     </div>
     
     <div class="model_block">
@@ -107,17 +112,16 @@
                       ar-modes="webxr scene-viewer quick-look"
                       quick-look-browsers="safari chrome"
                       camera-controls>
-            <button id="ar_btn" slot="ar-button">내가있는 공간에서 보기</button>
+            <!-- <button id="ar_btn" slot="ar-button">내가있는 공간에서 보기</button> -->
         </model-viewer>
 
         <div id="description">
             <p>제목</p>
             <p>
-                동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 <br>
-                남산 위에 저 소나무 철갑을 두른 듯 바람 서리 불변함은 우리 기상일세 <br>
-                가을 하늘 공활한데 높고 구름 없이 밝은 달은 우리 가슴 일편단심일세 <br>
-                이 기상과 이 맘으로 충성을 다하여 괴로우나 즐거우나 나라 사랑하세 <br>
-                (후렴) 무궁화 삼천리 화려강산 대한 사람 대한으로 길이 보전하세 
+                동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 
+                남산 위에 저 소나무 철갑을 두른 듯 바람 서리 불변함은 우리 기상일세 
+                가을 하늘 공활한데 높고 구름 없이 밝은 달은 우리 가슴 일편단심일세 
+                이 기상과 이 맘으로 충성을 다하여 괴로우나 즐거우나 나라 사랑하세
             </p>
         </div>
     </div>
