@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure--jswh(nc9-me1y-b&9s^4&puum$sdk^q%)ic)mvf(lsk$#_)lb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['soma-hackathon-pzpzi.run.goorm.io']
+ALLOWED_HOSTS = ['soma-hackathon-kfymw.run.goorm.io']
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 

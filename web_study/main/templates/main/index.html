@@ -1,29 +1,31 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
+    <meta charset="UTF-8">
+    <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <title>Hello WebXR!</title>
+    <title>Hello WebXR!</title>
 
-  <!-- three.js -->
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-  <script src="https://unpkg.com/three@0.126.0/build/three.js"></script>
+    <!-- three.js -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script src="https://unpkg.com/three@0.126.0/build/three.js"></script>
 </head>
 <body>
-       
+    <model-viewer src="/media/models/Astronaut/Astronaut.glb"
+                  ios-src = "src=/media/models/Astronaut/Astronaut.glb"
+                  alt="A 3D model of an astronaut" 
+                  ar 
+                  ar-modes="scene-viewer quick-look"
+                  camera-controls></model-viewer>
+    
+    <model-viewer src="/media/models/T-Rex/scene.gltf"
+                  ios-src = "src=/media/models/T-Rex/Astronaut.glb"
+                  alt="A 3D model of an T-Rex" 
+                  ar 
+                  ar-modes="scene-viewer quick-look" 
+                  camera-controls></model-viewer>
     
     
-    <model-viewer src="/media/models/Astronaut.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls alt="A 3D model of an astronaut" skybox-image="../../shared-assets/environments/aircraft_workshop_01_1k.hdr" ios-src="../../shared-assets/models/Astronaut.usdz"></model-viewer>
-    <model-viewer src="/media/models/scene.gltf" ar ar-modes="webxr scene-viewer quick-look" camera-controls alt="A 3D model of an astronaut" skybox-image="../../shared-assets/environments/aircraft_workshop_01_1k.hdr" ios-src="../../shared-assets/models/Astronaut.usdz"></model-viewer>
-    
-    
-
-    
-    
-    
-    
-
 <!-- Starting an immersive WebXR session requires user interaction.
     We start this one with a simple button. -->
 <button onclick="activateXR()">Start Hello WebXR</button>
