@@ -16,6 +16,7 @@
             <option value="{{model}}"> {{model}} </option>
         {% endfor %}
     </select>
+    
     <model-viewer id="model_viewer"
                   src="/media/models/Ankylosaurus/scene.gltf"
                   ios-src="/media/models/Ankylosaurus/Ankylosaurus.usdz"
@@ -25,6 +26,7 @@
                   quick-look-browsers="safari chrome"
                   camera-controls
                   style="width:500px; height:500px;"></model-viewer>
+    
     <script>
         function checkFileExist(urlToFile) {
             var xhr = new XMLHttpRequest();

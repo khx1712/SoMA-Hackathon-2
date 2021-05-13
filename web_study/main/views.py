@@ -7,4 +7,3 @@ def index(request):
     model_list = os.listdir(path)
     model_list.sort()
     return render_to_response('main/index.html', {'list': model_list})
-    # return render(request,'main/index.html', {'images': img_list})
