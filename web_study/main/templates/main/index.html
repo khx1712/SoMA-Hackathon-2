@@ -44,7 +44,7 @@
     <div id="footer">
         {% for model in list %}
         <div style="display:inline-block; width:10vh; height:10vh; border:1px solid black; word-wrap: break-word;" onclick="select_model2(this);">
-            <img src="/media/models/Thumbnail.png" style="overflow: hidden; display: flex; align-items: center; justify-content: center; width:10vh; height:10vh">
+            <img src="/media/models/{{model}}/Thumbnail.png" style="overflow: hidden; display: flex; align-items: center; justify-content: center; width:10vh; height:10vh">
             {{model}}
         </div>
         {% endfor %}
