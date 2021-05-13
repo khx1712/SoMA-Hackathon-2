@@ -9,28 +9,27 @@
     <!-- three.js -->
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <script src="https://unpkg.com/three@0.126.0/build/three.js"></script>
+    <style>
+        body::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    <select name="model_select" id="model_select" onchange="select_model(this);">
-        {% for model in list %}
-            <option value="{{model}}"> {{model}} </option>
-        {% endfor %}
-    </select>
-    
     <model-viewer id="model_viewer"
                   src="/media/models/Ankylosaurus/scene.gltf"
                   ios-src="/media/models/Ankylosaurus/Ankylosaurus.usdz"
-                  alt="A 3D model of an astronaut" 
+                  alt="A 3D model"  
                   ar 
                   ar-modes="webxr scene-viewer quick-look"
                   quick-look-browsers="safari chrome"
                   camera-controls
-                  style="width:90vw; height:50vh; margin:5vw;"></model-viewer>
+                  style="width:90vw; height:60vh; margin:5vw; position:fixed; "></model-viewer>
     
-    <div style="overflow-x: scroll; overflow-y: hidden; white-space:nowrap;">
+    <div style="white-space:nowrap; position:absolute; bottom:0; scrollbar:hide;">
         {% for model in list %}
-        <div style="display:inline-block; width:100px; height:100px; border:1px solid black; word-wrap: break-word;" onclick="select_model2(this);">
-            <img src='/' style="overflow: hidden; display: flex; align-items: center; justify-content: center;">
+        <div style="display:inline-block; width:10vh; height:10vh; border:1px solid black; word-wrap: break-word;" onclick="select_model2(this);">
+            <img src="/media/models/Thumbnail.png" style="overflow: hidden; display: flex; align-items: center; justify-content: center; width:10vh; height:10vh">
             {{model}}
         </div>
         {% endfor %}
