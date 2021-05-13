@@ -13,9 +13,25 @@
         body::-webkit-scrollbar {
             display: none;
         }
+        #model_viewer{
+            width:90vw; 
+            height:60vh; 
+            margin:5vw; 
+            position:fixed; 
+            border:1px solid black;
+        }
+        #footer{
+            position:absolute; 
+            bottom:0;
+            white-space:nowrap; 
+        }
     </style>
 </head>
 <body>
+    <div>
+        
+    </div>
+    
     <model-viewer id="model_viewer"
                   src="/media/models/Ankylosaurus/scene.gltf"
                   ios-src="/media/models/Ankylosaurus/Ankylosaurus.usdz"
@@ -23,10 +39,9 @@
                   ar 
                   ar-modes="webxr scene-viewer quick-look"
                   quick-look-browsers="safari chrome"
-                  camera-controls
-                  style="width:90vw; height:60vh; margin:5vw; position:fixed; "></model-viewer>
+                  camera-controls></model-viewer>
     
-    <div style="white-space:nowrap; position:absolute; bottom:0; scrollbar:hide;">
+    <div id="footer">
         {% for model in list %}
         <div style="display:inline-block; width:10vh; height:10vh; border:1px solid black; word-wrap: break-word;" onclick="select_model2(this);">
             <img src="/media/models/Thumbnail.png" style="overflow: hidden; display: flex; align-items: center; justify-content: center; width:10vh; height:10vh">
