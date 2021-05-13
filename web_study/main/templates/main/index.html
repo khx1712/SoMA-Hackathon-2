@@ -1,150 +1,135 @@
-<!doctype html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" 
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>내 손 안의 실감 라이브러리</title>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Stylish Portfolio - Start Bootstrap Template</title>
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+        <!-- Simple line icons-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css" rel="stylesheet" />
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+<!--        <a class="menu-toggle rounded" href="#"><i class="fas fa-bars"></i></a>-->
+<!--        <nav id="sidebar-wrapper">-->
+<!--            <ul class="sidebar-nav">-->
+<!--                <li class="sidebar-brand"><a class="js-scroll-trigger" href="#page-top">Start Bootstrap</a></li>-->
+<!--                <li class="sidebar-nav-item"><a class="js-scroll-trigger" href="#page-top">Home</a></li>-->
+<!--                <li class="sidebar-nav-item"><a class="js-scroll-trigger" href="#about">About</a></li>-->
+<!--                <li class="sidebar-nav-item"><a class="js-scroll-trigger" href="#services">Services</a></li>-->
+<!--                <li class="sidebar-nav-item"><a class="js-scroll-trigger" href="#portfolio">Portfolio</a></li>-->
+<!--                <li class="sidebar-nav-item"><a class="js-scroll-trigger" href="#contact">Contact</a></li>-->
+<!--            </ul>-->
+<!--        </nav>-->
+        <section class="content-section" id="portfolio">
+            <div class="container">
 
-    <!-- three.js -->
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-    <script src="https://unpkg.com/three@0.126.0/build/three.js"></script>
-    <style>
-        body::-webkit-scrollbar {
-            display: none;
-        }
-        body {
-            width     : 100vw;
-            height    : 100vh;
-            margin    : 0px;
-        }
-        html, body {
-            overflow-y: hidden;
-        }
-        .header{
-            margin    : 0px auto;
-        }
-        .model_block {
-            width     : 90vw; 
-            height    : 70vh; 
-            position  : fixed;
-            left      : 5vw;
-            bottom    : 16vh;
-            border    : 1px solid black;
-        }
-        .model_block #model_viewer{
-            width     : 90vw; 
-            height    : 70vh; 
-            position  : absolute;
-        }
-        .model_block #model_viewer #ar_btn {
-            margin-left : auto;
-            margin-top : 45vh;
-            /* position         : absolute;
-            top              : 16px;
-            right            : 16px; */
-            background-color : white;
-            border-radius    : 10px; 
-            border           : 1px solid black; 
-            font-size        : large;
-        }
-        .model_block #description{
-            width            : 90vw; 
-            height           : 20vh; 
-            position         : absolute;
-            margin-top       : 50vh;
-            background-color : #0003;
-            overflow-x       : hidden;
-            overflow-y       : auto;
-            font-size        : large;
-        }
-        .footer_container {
-            width       : 100%;
-            height      : 15vh;
-            position    : fixed;
-            left        : 0;
-            bottom      : 0;
-        }
-        .footer {
-            width       : 100vw;
-            display     : inline-block;
-            overflow-x  : auto;
-            overflow-y  : hidden;
-            white-space : nowrap; 
-        }
-        .footer #thumbnail_block{
-            display   : inline-block;  
-            vertical-align : bottom;
-            margin    : 0px 5px;
-        }
-        .footer #thumbnail_block img { 
-            display   : flex; 
-            width     : 12vh; 
-            height    : 12vh;
-            overflow  : hidden;
-            border    : 1px solid black;
-        }
-    </style>
-</head>
-<body>
-    <div class="header">
-        <p>K - 자연사 박물관</p>
-    </div>
-    
-    <div class="model_block">
-        <model-viewer id="model_viewer"
-                      src="/media/models/Ankylosaurus/scene.gltf"
-                      ios-src="/media/models/Ankylosaurus/Ankylosaurus.usdz"
-                      alt="A 3D model"  
-                      ar 
-                      ar-modes="webxr scene-viewer quick-look"
-                      quick-look-browsers="safari chrome"
-                      camera-controls>
-            <button id="ar_btn" slot="ar-button">내가있는 공간에서 보기</button>
-        </model-viewer>
-
-        <div id="description">
-            <p>제목</p>
-            <p>
-                동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 <br>
-                남산 위에 저 소나무 철갑을 두른 듯 바람 서리 불변함은 우리 기상일세 <br>
-                가을 하늘 공활한데 높고 구름 없이 밝은 달은 우리 가슴 일편단심일세 <br>
-                이 기상과 이 맘으로 충성을 다하여 괴로우나 즐거우나 나라 사랑하세 <br>
-                (후렴) 무궁화 삼천리 화려강산 대한 사람 대한으로 길이 보전하세 
-            </p>
-        </div>
-    </div>
-    
-    <div class="footer_container"> 
-        <div class="footer">
-            {% for model in list %}
-            <div id="thumbnail_block" onclick="select_model(this);">
-                <img src="/media/models/{{model}}/Thumbnail.png">
-                {{model}}
+                <div class="row no-gutters">
+                    <div class="col-lg-6">
+                        <a class="portfolio-item" href="#!">
+                            <img id="swm_bi" class="img-fluid" src="assets/img/swm_bi_00.jpg"/>
+                        </a>
+                    </div>
+                </div>
             </div>
-            {% endfor %}
-        </div>
-    </div>
-    
-    <script>
-        function checkFileExist(urlToFile) {
-            var xhr = new XMLHttpRequest();
-            xhr.open('HEAD', urlToFile, false);
-            xhr.send();
+        </section>
+        <Header class="masthead d-flex">
+            <div class="container text-center my-auto">
+                <h2 class="mb-1">내 손안의 AR <br> 실감 라이브러리</h2>
+                <br>
+                <span>펜대믹으로 인해 여러모로 교육, 관광에 어려움이 있기에 동물과 문화사에 대한 교육적 3D 공공 데이터를 수집하여 AR 실감 체험 웹를 준비하였습니다.
+                </span>
+<!--                <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>-->
+            </div>
+<!--            <div class="overlay" style="background-color:green;"></div>-->
+        </header>
+        <!-- About-->
 
-            if (xhr.status == "404") {
-                return false;
-            } else {
-                return true;
-            }
-        }
-        var select_model = function (select_obj){
-            var selected_value = select_obj.innerText;
-            src = '/media/models/'+selected_value+'/scene.gltf';
-            if(!checkFileExist(src)) src = '/media/models/'+selected_value+'/scene.glb'
-            document.getElementById('model_viewer').src = src;
-            document.getElementById('model_viewer').iosSrc = '/media/models/'+selected_value+'/'+selected_value+'.usdz';
-        };
-    </script>
-</body>
+        <!-- Portfolio-->
+        <section class="content-section" id="portfolio">
+            <div class="container">
+
+                <div class="row no-gutters">
+                    <div class="col-lg-6">
+                        <a class="portfolio-item" href="#!">
+                            <div class="caption">
+                                <div class="caption-content">
+                                    <div class="h2">귀여운 동물들</div>
+                                    <p class="mb-0">Cute Animals</p>
+                                </div>
+                            </div>
+                            <img class="img-fluid" src="assets/img/portfolio-1.jpg" alt="/modelview" />
+                        </a>
+                    </div>
+                    <div class="col-lg-6">
+                        <a class="portfolio-item" href="#!">
+                            <div class="caption">
+                                <div class="caption-content">
+                                    <div class="h2">한국 문화 유산</div>
+                                    <p class="mb-0">K-Cultural Heritage</p>
+                                </div>
+                            </div>
+                            <img class="img-fluid" src="assets/img/portfolio-2.jpg" alt="..." />
+                        </a>
+                    </div>
+                    <div class="col-lg-6">
+                        <a class="portfolio-item" href="#!">
+                            <div class="caption">
+                                <div class="caption-content">
+                                    <div class="h2">세계 문화 유산</div>
+                                    <p class="mb-0">World Heritage</p>
+                                </div>
+                            </div>
+                            <img class="img-fluid" src="assets/img/portfolio-3.jpg" alt="..." />
+                        </a>
+                    </div>
+                    <div class="col-lg-6">
+                        <a class="portfolio-item" href="#!">
+                            <div class="caption">
+                                <div class="caption-content">
+                                    <div class="h2">Workspace</div>
+                                    <p class="mb-0">A yellow workspace with some scissors, pencils, and other objects.</p>
+                                </div>
+                            </div>
+                            <img class="img-fluid" src="assets/img/portfolio-4.jpg" alt="..." />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer-->
+        <footer class="footer text-center">
+            <div class="container">
+                <ul class="list-inline mb-5">
+                    <li class="list-inline-item">
+                        <a class="social-link rounded-circle text-white mr-3" href="#!"><i class="icon-social-facebook"></i></a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="social-link rounded-circle text-white mr-3" href="#!"><i class="icon-social-twitter"></i></a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="social-link rounded-circle text-white" href="#!"><i class="icon-social-github"></i></a>
+                    </li>
+                </ul>
+                <p class="text-muted small mb-0">Copyright &copy; Your Website 2021</p>
+            </div>
+        </footer>
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top"><i class="fas fa-angle-up"></i></a>
+        <!-- Bootstrap core JS-->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+        <!-- Custom scripts for this template-->
+        <script src="js/scripts.js"></script>
+    </body>
 </html>

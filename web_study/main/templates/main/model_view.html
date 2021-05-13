@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" 
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>내 손 안의 실감 라이브러리</title>
+
+    <!-- three.js -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script src="https://unpkg.com/three@0.126.0/build/three.js"></script>
+    <style>
+        body::-webkit-scrollbar {
+            display: none;
+        }
+        body {
+            width     : 100vw;
+            height    : 100vh;
+            margin    : 0px;
+        }
+        html, body {
+            overflow-y: hidden;
+        }
+        .header{
+            margin    : 0px auto;
+        }
+        .model_block {
+            width     : 90vw; 
+            height    : 70vh; 
+            position  : fixed;
+            left      : 5vw;
+            bottom    : 16vh;
+            border    : 1px solid black;
+        }
+        .model_block #model_viewer{
+            width     : 90vw; 
+            height    : 70vh; 
+            position  : absolute;
+        }
+        .model_block #model_viewer #ar_btn {
+            margin-left : auto;
+            margin-top : 45vh;
+            /* position         : absolute;
+            top              : 16px;
+            right            : 16px; */
+            background-color : white;
+            border-radius    : 10px; 
+            border           : 1px solid black; 
+            font-size        : large;
+        }
+        .model_block #description{
+            width            : 90vw; 
+            height           : 20vh; 
+            position         : absolute;
+            margin-top       : 50vh;
+            background-color : #0003;
+            overflow-x       : hidden;
+            overflow-y       : auto;
+            font-size        : large;
+        }
+        .footer_container {
+            width       : 100%;
+            height      : 15vh;
+            position    : fixed;
+            left        : 0;
+            bottom      : 0;
+        }
+        .footer {
+            width       : 100vw;
+            display     : inline-block;
+            overflow-x  : auto;
+            overflow-y  : hidden;
+            white-space : nowrap; 
+        }
+        .footer #thumbnail_block{
+            display   : inline-block;  
+            vertical-align : bottom;
+            margin    : 0px 5px;
+        }
+        .footer #thumbnail_block img { 
+            display   : flex; 
+            width     : 12vh; 
+            height    : 12vh;
+            overflow  : hidden;
+            border    : 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <p>K - 자연사 박물관</p>
+    </div>
+    
+    <div class="model_block">
+        <model-viewer id="model_viewer"
+                      src="/media/models/Ankylosaurus/scene.gltf"
+                      ios-src="/media/models/Ankylosaurus/Ankylosaurus.usdz"
+                      alt="A 3D model"  
+                      ar 
+                      ar-modes="webxr scene-viewer quick-look"
+                      quick-look-browsers="safari chrome"
+                      camera-controls>
+            <button id="ar_btn" slot="ar-button">내가있는 공간에서 보기</button>
+        </model-viewer>
+
+        <div id="description">
+            <p>제목</p>
+            <p>
+                동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 <br>
+                남산 위에 저 소나무 철갑을 두른 듯 바람 서리 불변함은 우리 기상일세 <br>
+                가을 하늘 공활한데 높고 구름 없이 밝은 달은 우리 가슴 일편단심일세 <br>
+                이 기상과 이 맘으로 충성을 다하여 괴로우나 즐거우나 나라 사랑하세 <br>
+                (후렴) 무궁화 삼천리 화려강산 대한 사람 대한으로 길이 보전하세 
+            </p>
+        </div>
+    </div>
+    
+    <div class="footer_container"> 
+        <div class="footer">
+            {% for model in list %}
+            <div id="thumbnail_block" onclick="select_model(this);">
+                <img src="/media/models/{{model}}/Thumbnail.png">
+                {{model}}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+    <script>
+        function checkFileExist(urlToFile) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('HEAD', urlToFile, false);
+            xhr.send();
+
+            if (xhr.status == "404") {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        var select_model = function (select_obj){
+            var selected_value = select_obj.innerText;
+            src = '/media/models/'+selected_value+'/scene.gltf';
+            if(!checkFileExist(src)) src = '/media/models/'+selected_value+'/scene.glb'
+            document.getElementById('model_viewer').src = src;
+            document.getElementById('model_viewer').iosSrc = '/media/models/'+selected_value+'/'+selected_value+'.usdz';
+        };
+    </script>
+</body>
+</html>
