@@ -39,8 +39,8 @@
             height    : 70vh; 
             position  : fixed;
             left      : 5vw;
-            bottom    : 16vh;
-            border    : 1px solid black;
+            bottom    : 17vh;
+            border    : 0px solid black;
         }
         .model_block #model_viewer{
             width     : 90vw; 
@@ -82,8 +82,7 @@
             white-space : nowrap; 
         }
         .footer #thumbnail_block{
-            display        : inline-block;  
-            vertical-align : bottom;
+            display        : inline-block;
             margin         : 0px 5px;
         }
         .footer #thumbnail_block img { 
@@ -93,6 +92,9 @@
             overflow  : hidden;
             border    : 1px solid black;
         }
+        .footer #thumbnail_block p { 
+            margin    : 0px;
+        }
     </style>
 </head>
 <body>
@@ -101,22 +103,28 @@
             <img id="swm_bi" src="/media/assets/icon/Back.jpg" style="height:3em;"/>
         </a>
         <h1 style="margin: auto; white-space : nowrap;">
-            {% if {{category}}=='Animals' %}
+            {% if category == 'Animals' %}
                 귀여운 동물들
-            {% elif {{category}}=='Natural_History' %}
+            {% elif category == 'Natural_History' %}
                 자연사
-            {% elif {{category}}=='K-Cultural_Heritage' %}
+            {% elif category == 'K-Cultural_Heritage' %}
                 한국 역사 문화
-            {% elif {{category}}=='World_Heritage' %}
+            {% elif category == 'World_Heritage' %}
                 세계 역사 문화
-            {% endif%}
+            {% endif %}
         </h1>
     </div>
     
     <div class="model_block">
         <model-viewer id="model_viewer"
                       src="/media/models/Ankylosaurus/scene.gltf"
-                      ios-src="/media/models/Ankylosaurus/Ankylosaurus.usdz"
+                      ios-src="/media/models/Ankylosa.footer #thumbnail_block img { 
+            display   : flex; 
+            width     : 12vh; 
+            height    : 12vh;
+            overflow  : hidden;
+            border    : 1px solid black;
+        }urus/Ankylosaurus.usdz"
                       alt="A 3D model"  
                       ar 
                       ar-modes="webxr scene-viewer quick-look"
@@ -140,8 +148,10 @@
         <div class="footer">
             {% for model in list %}
             <div id="thumbnail_block" onclick="select_model(this);">
-                <img src="/media/models/{{model}}/Thumbnail.png">
-                {{model}}
+                <img src="/media/models/{{category}}/{{model}}/Thumbnail.png">
+                <p>
+                    {{model}}                    
+                </p>
             </div>
             {% endfor %}
         </div>
@@ -161,10 +171,10 @@
         }
         var select_model = function (select_obj){
             var selected_value = select_obj.innerText;
-            src = '/media/models/'+selected_value+'/scene.gltf';
-            if(!checkFileExist(src)) src = '/media/models/'+selected_value+'/scene.glb'
+            src = '/media/models/{{category}}/'+selected_value+'/scene.gltf';
+            if(!checkFileExist(src)) src = '/media/models/{{category}}/'+selected_value+'/scene.glb'
             document.getElementById('model_viewer').src = src;
-            document.getElementById('model_viewer').iosSrc = '/media/models/'+selected_value+'/'+selected_value+'.usdz';
+            document.getElementById('model_viewer').iosSrc = '/media/models/{{category}}/'+selected_value+'/'+selected_value+'.usdz';
         };
     </script>
 </body>
