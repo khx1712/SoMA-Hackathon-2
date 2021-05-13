@@ -38,7 +38,7 @@
 
                 <div class="row no-gutters">
                     <div class="col-lg-6">
-                        <a class="portfolio-item" href="{% url 'modelview' %}" >
+                        <a class="portfolio-item" href="{% url 'modelview' category='Animal' %}" >
                             <div class="caption">
                                 <div class="caption-content">
                                     <div class="h2">귀여운 동물들</div>
@@ -49,11 +49,11 @@
                         </a>
                     </div>
                     <div class="col-lg-6">
-                        <a class="portfolio-item" href="#!">
+                        <a class="portfolio-item" href="{% url 'modelview' %}">
                             <div class="caption">
                                 <div class="caption-content">
                                     <div class="h2">자연사</div>
-                                    <p class="mb-0">자연사</p>
+                                    <p class="mb-0">Natural History</p>
                                 </div>
                             </div>
                             <img class="img-fluid" src="/media/assets/img/london.jpg" alt="..." />
