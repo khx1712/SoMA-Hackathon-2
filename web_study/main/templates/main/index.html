@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" 
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>K-AR</title>
+    <title>내 손 안의 실감 라이브러리</title>
 
     <!-- three.js -->
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
@@ -25,7 +25,15 @@
                   ar-modes="webxr scene-viewer quick-look"
                   quick-look-browsers="safari chrome"
                   camera-controls
-                  style="width:500px; height:500px;"></model-viewer>
+                  style="width:90vw; height:50vh; margin:5vw;"></model-viewer>
+    
+    <div style="overflow-x: scroll; overflow-y: hidden; white-space:nowrap;">
+        {% for model in list %}
+        <div style="display:inline-block; width:100px; height:100px; border:1px solid black; word-wrap: break-word;" onclick="select_model2(this);">
+                {{model}}
+        </div>
+        {% endfor %}
+    </div>
     
     <script>
         function checkFileExist(urlToFile) {
@@ -45,6 +53,14 @@
             // 선택된 index의 value를 찾고 
             var selected_value = select_obj.options[selected_index].value;
             // 원하는 동작을 수행한다. 
+            src = '/media/models/'+selected_value+'/scene.gltf';
+            if(!checkFileExist(src)) src = '/media/models/'+selected_value+'/scene.glb'
+            document.getElementById('model_viewer').src = src;
+            document.getElementById('model_viewer').iosSrc = '/media/models/'+selected_value+'/'+selected_value+'.usdz';
+        };
+        var select_model2 = function (select_obj){
+            var selected_value = select_obj.innerText;
+            // 원하는 동작을 수행
             src = '/media/models/'+selected_value+'/scene.gltf';
             if(!checkFileExist(src)) src = '/media/models/'+selected_value+'/scene.glb'
             document.getElementById('model_viewer').src = src;
