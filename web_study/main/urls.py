@@ -6,6 +6,6 @@ from django.conf import settings
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('/modelview', views.modelview, name='modelview'),
+    path('modelview', views.modelview, name='modelview'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

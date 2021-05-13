@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Stylish Portfolio - Start Bootstrap Template</title>
+        <title>부캐 파티</title>
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
         <!-- Simple line icons-->
@@ -13,28 +13,17 @@
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
+        {% load static %}
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
     </head>
     <body id="page-top">
-        <!-- Navigation-->
-<!--        <a class="menu-toggle rounded" href="#"><i class="fas fa-bars"></i></a>-->
-<!--        <nav id="sidebar-wrapper">-->
-<!--            <ul class="sidebar-nav">-->
-<!--                <li class="sidebar-brand"><a class="js-scroll-trigger" href="#page-top">Start Bootstrap</a></li>-->
-<!--                <li class="sidebar-nav-item"><a class="js-scroll-trigger" href="#page-top">Home</a></li>-->
-<!--                <li class="sidebar-nav-item"><a class="js-scroll-trigger" href="#about">About</a></li>-->
-<!--                <li class="sidebar-nav-item"><a class="js-scroll-trigger" href="#services">Services</a></li>-->
-<!--                <li class="sidebar-nav-item"><a class="js-scroll-trigger" href="#portfolio">Portfolio</a></li>-->
-<!--                <li class="sidebar-nav-item"><a class="js-scroll-trigger" href="#contact">Contact</a></li>-->
-<!--            </ul>-->
-<!--        </nav>-->
         <section class="content-section" id="portfolio">
             <div class="container">
 
                 <div class="row no-gutters">
                     <div class="col-lg-6">
                         <a class="portfolio-item" href="#!">
-                            <img id="swm_bi" class="img-fluid" src="assets/img/swm_bi_00.jpg"/>
+                            <img id="swm_bi" class="img-fluid" src="{% static 'assets/img/swm_bi_00.jpg' %}"/>
                         </a>
                     </div>
                 </div>
@@ -44,28 +33,26 @@
             <div class="container text-center my-auto">
                 <h2 class="mb-1">내 손안의 AR <br> 실감 라이브러리</h2>
                 <br>
-                <span>펜대믹으로 인해 여러모로 교육, 관광에 어려움이 있기에 동물과 문화사에 대한 교육적 3D 공공 데이터를 수집하여 AR 실감 체험 웹를 준비하였습니다.
+                <span>
+                    펜대믹으로 인해 여러모로 교육, 관광에 어려움이 있기에 동물과 문화사에 대한 교육적 3D 공공 데이터를 수집하여 AR 실감 체험 웹를 준비하였습니다.
                 </span>
-<!--                <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>-->
             </div>
-<!--            <div class="overlay" style="background-color:green;"></div>-->
-        </header>
+        </Header>
         <!-- About-->
 
-        <!-- Portfolio-->
         <section class="content-section" id="portfolio">
             <div class="container">
 
                 <div class="row no-gutters">
                     <div class="col-lg-6">
-                        <a class="portfolio-item" href="#!">
+                        <a class="portfolio-item" href="{% url 'modelview' %}" >
                             <div class="caption">
                                 <div class="caption-content">
                                     <div class="h2">귀여운 동물들</div>
                                     <p class="mb-0">Cute Animals</p>
                                 </div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio-1.jpg" alt="/modelview" />
+                            <img class="img-fluid" src="{% static 'assets/img/portfolio-1.jpg' %}" alt="..."/>
                         </a>
                     </div>
                     <div class="col-lg-6">
@@ -76,7 +63,7 @@
                                     <p class="mb-0">K-Cultural Heritage</p>
                                 </div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio-2.jpg" alt="..." />
+                            <img class="img-fluid" src="{% static 'assets/img/portfolio-2.jpg' %}" alt="..." />
                         </a>
                     </div>
                     <div class="col-lg-6">
@@ -87,7 +74,7 @@
                                     <p class="mb-0">World Heritage</p>
                                 </div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio-3.jpg" alt="..." />
+                            <img class="img-fluid" src="{% static 'assets/img/portfolio-3.jpg' %}" alt="..." />
                         </a>
                     </div>
                     <div class="col-lg-6">
@@ -98,7 +85,7 @@
                                     <p class="mb-0">A yellow workspace with some scissors, pencils, and other objects.</p>
                                 </div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio-4.jpg" alt="..." />
+                            <img class="img-fluid" src="{% static 'assets/img/portfolio-4.jpg' %}" alt="..." />
                         </a>
                     </div>
                 </div>
@@ -130,6 +117,6 @@
         <!-- Third party plugin JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
         <!-- Custom scripts for this template-->
-        <script src="js/scripts.js"></script>
+        <script src="{% static 'js/scripts.js' %}"></script>
     </body>
 </html>
