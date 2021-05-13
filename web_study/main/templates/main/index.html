@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
+    <meta name="viewport" 
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>내 손 안의 실감 라이브러리</title>
 
@@ -14,47 +14,54 @@
             display: none;
         }
         #model_viewer{
-            width:90vw;
-            height:60vh;
-            margin:5vw;
-            position:fixed;
-            border:1px solid black;
+            width     : 90vw; 
+            height    : 60vh; 
+            margin    : 5vw; 
+            position  : fixed; 
+            border    : 1px solid black;
         }
         #footer{
-            position:absolute;
-            bottom:0;
-            white-space:nowrap;
+            position    : absolute; 
+            bottom      : 0;
+            white-space : nowrap; 
+        }
+        #model_block{
+            display   : inline-block; 
+            width     : 20vh; 
+            height    : 20vh; 
+            border    : 1px solid black; 
+        }
+        #model_block img { 
+            display   : flex; 
+            width     : 20vh; 
+            height    : 20vh;
+            overflow  : hidden;
         }
     </style>
 </head>
 <body>
     <div>
-
+        
     </div>
-
+    
     <model-viewer id="model_viewer"
                   src="/media/models/Ankylosaurus/scene.gltf"
                   ios-src="/media/models/Ankylosaurus/Ankylosaurus.usdz"
-                  alt="A 3D model"
-                  ar
+                  alt="A 3D model"  
+                  ar 
                   ar-modes="webxr scene-viewer quick-look"
                   quick-look-browsers="safari chrome"
                   camera-controls></model-viewer>
-
+    
     <div id="footer">
         {% for model in list %}
-<<<<<<< HEAD
-        <div style="display:inline-block; width:10vh; height:10vh; border:1px solid black; word-wrap: break-word;" onclick="select_model2(this);">
-            <img src="/media/models/{{model}}/Thumbnail.png" style="overflow: hidden; display: flex; align-items: center; justify-content: center; width:10vh; height:10vh">
-=======
-        <div style="display:inline-block; width:20vh; height:20vh; border:1px solid black; word-wrap: break-word;" onclick="select_model2(this);">
-            <img src="/media/models/Thumbnail.png" style="overflow: hidden; display: flex; align-items: center; justify-content: center; width:20vh; height:20vh">
->>>>>>> a2f22ab31c63381620e239632b246ef5a3530e69
+        <div id="model_block" onclick="select_model2(this);">
+            <img src="/media/models/{{model}}/Thumbnail.png">
             {{model}}
         </div>
         {% endfor %}
     </div>
-
+    
     <script>
         function checkFileExist(urlToFile) {
             var xhr = new XMLHttpRequest();
@@ -68,11 +75,11 @@
             }
         }
         var select_model = function (select_obj){
-            // 우선 selectbox에서 선택된 index를 찾고
+            // 우선 selectbox에서 선택된 index를 찾고 
             var selected_index = select_obj.selectedIndex;
-            // 선택된 index의 value를 찾고
+            // 선택된 index의 value를 찾고 
             var selected_value = select_obj.options[selected_index].value;
-            // 원하는 동작을 수행한다.
+            // 원하는 동작을 수행한다. 
             src = '/media/models/'+selected_value+'/scene.gltf';
             if(!checkFileExist(src)) src = '/media/models/'+selected_value+'/scene.glb'
             document.getElementById('model_viewer').src = src;
