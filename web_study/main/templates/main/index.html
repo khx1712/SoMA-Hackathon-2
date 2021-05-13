@@ -30,7 +30,8 @@
     <div style="overflow-x: scroll; overflow-y: hidden; white-space:nowrap;">
         {% for model in list %}
         <div style="display:inline-block; width:100px; height:100px; border:1px solid black; word-wrap: break-word;" onclick="select_model2(this);">
-                {{model}}
+            <img src='/' style="overflow: hidden; display: flex; align-items: center; justify-content: center;">
+            {{model}}
         </div>
         {% endfor %}
     </div>
