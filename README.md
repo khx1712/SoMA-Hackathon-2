@@ -26,7 +26,8 @@
 각 항목에서 세부 콘텐츠를 선택하여 3D와 AR로 볼 수 있습니다. 
 
 스크린샷 3장 나란히
-
+<p align="left"><img src="https://user-images.githubusercontent.com/42955392/116554507-3821cf00-a936-11eb-9e0e-9cdd0419dd0a.PNG" width="20%">
+<img src="https://user-images.githubusercontent.com/42955392/116555000-d2821280-a936-11eb-8ea3-3e93dc38bd40.PNG" width="20%"></p>
 
 
 ## 서버 실행 방법 
