@@ -10,19 +10,25 @@
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <script src="https://unpkg.com/three@0.126.0/build/three.js"></script>
     <style>
+        @font-face { 
+            font-family: 'Nanum Barun Gothic'; 
+            src: url(/media/fonts//NanumBarunGothic.ttf) format('truetype'); 
+        }
         body::-webkit-scrollbar {
             display: none;
         }
         body {
-            width     : 100vw;
-            height    : 100vh;
-            margin    : 0px;
+            width      : 100vw;
+            height     : 100vh;
+            margin     : 0px;
         }
         html, body {
-            overflow-y: hidden;
+            overflow-y  : hidden;
+            font-family : 'Nanum Barun Gothic', sans-serif;
         }
         .header{
-            margin    : 0px auto;
+            width      : 90vw;
+            margin     : 0px auto;
         }
         .model_block {
             width     : 90vw; 
@@ -38,11 +44,9 @@
             position  : absolute;
         }
         .model_block #model_viewer #ar_btn {
-            margin-left : auto;
-            margin-top : 45vh;
-            /* position         : absolute;
-            top              : 16px;
-            right            : 16px; */
+            position         : absolute;
+            bottom           : 21vh;
+            right            : 1vh;
             background-color : white;
             border-radius    : 10px; 
             border           : 1px solid black; 
@@ -73,9 +77,9 @@
             white-space : nowrap; 
         }
         .footer #thumbnail_block{
-            display   : inline-block;  
+            display        : inline-block;  
             vertical-align : bottom;
-            margin    : 0px 5px;
+            margin         : 0px 5px;
         }
         .footer #thumbnail_block img { 
             display   : flex; 
@@ -88,6 +92,9 @@
 </head>
 <body>
     <div class="header">
+        <a href="{% url '' %}">
+            <img src="" >
+        </a>
         <p>K - 자연사 박물관</p>
     </div>
     
