@@ -18,7 +18,8 @@
 
 ## 기획 의도
 
-펜대믹으로 인해 여러모로 교육, 관광에 어려움이 있기에 동물과 문화사에 대한 교육적 3D 공공 데이터를 수집하여 `AR 실감 체험 웹`를 준비하였습니다.
+저희는 팬데믹으로 인해 여러모로 교육, 관광 등 일상생활에 어려움이 있기에, 동물과 문화사에 대한  
+교육적 3D 공공 데이터를 수집 및 재구성하여 집에서 쉽게 이용 가능한 `AR 실감 체험 웹` 프로토타입을 개발하였습니다.
 
 ## 콘텐츠 및 기능 
 
@@ -26,8 +27,8 @@
 각 항목에서 세부 콘텐츠를 선택하여 3D와 AR로 볼 수 있습니다. 
 
 스크린샷 3장 나란히
-<p align="left"><img src="https://user-images.githubusercontent.com/42955392/116554507-3821cf00-a936-11eb-9e0e-9cdd0419dd0a.PNG" width="20%">
-<img src="https://user-images.githubusercontent.com/42955392/116555000-d2821280-a936-11eb-8ea3-3e93dc38bd40.PNG" width="20%"><img src="https://user-images.githubusercontent.com/42955392/116554507-3821cf00-a936-11eb-9e0e-9cdd0419dd0a.PNG" width="20%"></p>
+<p align="left"><img src="https://user-images.githubusercontent.com/42955392/118197773-91d3de80-b48a-11eb-8333-fcee19e6c38b.PNG" width="30%">
+<img src="https://user-images.githubusercontent.com/42955392/118203859-f3e71080-b497-11eb-9fa1-8341841c87fb.jpeg" width="30%"><img src="https://user-images.githubusercontent.com/42955392/118203952-1842ed00-b498-11eb-9b64-a724cf5aff34.jpeg" width="30%"></p>
 
 
 
