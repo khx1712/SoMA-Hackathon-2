@@ -152,7 +152,7 @@
                 </strong> -->
             </p>
             <p id="description_text">
-                {% if model == 'T-Rex' %}
+                <!-- {% if model == 'T-Rex' %}
                 백악기 후기(6800~6500만 년 전)에 살았던, 용반목 수각아목 티라노사우루스과의 속이다. <br>
                 라이선스: CC Attribution
                 {% elif model == 'Taranrula' %}
@@ -169,7 +169,7 @@
                 라이선스: CC Attribution
                 {% elif model == 'Statuette_Of_A_Jackal' %}
                 체코에서 공수되어온 사암으로 만들어진 사자석상이다.
-                {% endif %}
+                {% endif %} -->
             </p>
         </div>
     </div>
@@ -177,9 +177,27 @@
     <div class="footer_container"> 
         <div class="footer">
             {% for model in list %}
-            <div id="thumbnail_block" onclick="select_model(this);">
+            <div id="thumbnail_block" value="{{model}}"onclick="select_model(this);">
                 <img src="/media/models/{{category}}/{{model}}/Thumbnail.png">
-                {{model}}
+                {% if model == 'T-Rex' %}
+                    티라노사우루스
+                {% elif model == 'Ankylosaurus' %}
+                    안킬로사우루스
+                {% elif model == 'Dinosaurus' %}
+                    공룡
+                {% elif model == 'Tarantula' %}
+                    타란툴라
+                {% elif model == 'Sitting_Korean_Buddha_WIP' %}
+                    금동좌불상
+                {% elif model == 'Triceratops_skull' %}
+                    트리케라톱스 머리뼈
+                {% elif model == 'Moai' %}
+                    모아이 석상
+                {% elif model == 'Lion_Statue' %}
+                    비엔나도서관 사자상
+                {% elif model == 'Queen_From_The_Lewis_Chess_Pieces' %}
+                    루이스 체스의 퀸
+                {% endif %}
             </div>
             {% endfor %}
         </div>
@@ -198,7 +216,7 @@
             }
         }
         var select_model = function (select_obj){
-            var selected_value = select_obj.innerText;
+            var selected_value = select_obj.getAttribute('value');
             src = '/media/models/{{category}}/'+selected_value+'/scene.gltf';
             if(!checkFileExist(src)) src = '/media/models/{{category}}/'+selected_value+'/scene.glb'
             document.getElementById('model_viewer').src = src;
@@ -207,6 +225,8 @@
             model = selected_value;
             if(model == 'T-Rex'){
                 document.getElementById('description_title').innerText = '티라노사우루스';
+            } else if(model == 'Ankylosaurus'){
+                document.getElementById('description_title').innerText = '안킬로사우루스';
             } else if(model == 'Tarantula'){
                 document.getElementById('description_title').innerText = '타란툴라';
             } else if(model == 'Sitting_Korean_Buddha_WIP'){
@@ -215,14 +235,18 @@
                 document.getElementById('description_title').innerText = '트리케라톱스 머리뼈';
             } else if(model == 'Moai'){
                 document.getElementById('description_title').innerText = '모아이 석상';
-            } else if(model == 'Statuette_Of_A_Jackal'){
-                document.getElementById('description_title').innerText = '오스트리아 국립 도서관 사자상';
+            } else if(model == 'Lion_Statue'){
+                document.getElementById('description_title').innerText = '비엔나도서관 사자상';
+            } else if(model == 'Queen_From_The_Lewis_Chess_Pieces'){
+                document.getElementById('description_title').innerText = '루이스 체스의 퀸';
             } else {
                 document.getElementById('description_title').innerText = model;
             }
             
             if(model == 'T-Rex'){
                 document.getElementById('description_text').innerText = '백악기 후기(6800~6500만 년 전)에 살았던, 용반목 수각아목 티라노사우루스과의 속이다. \n라이선스: CC Attribution';
+            } else if(model == 'Ankylosaurus'){
+                document.getElementById('description_text').innerText = '연결된 도마뱀이라는 뜻으로, 갑옷 공룡 가운데 가장 크다. 스테고사우루스가 멸종된 후로 많이 나타났다.';
             } else if(model == 'Tarantula'){
                 document.getElementById('description_text').innerText = '대형열대거미과 그리고 짐승빛거미과, 테라포사과(Theraphosidae)에 속하는 거미의 총칭이다. 움직임, 온도, 냄새를 느낄 수 있도록 큰 독니, 몸을 감싸고 있는 10~80만 개의 털을 가지고 있다.\n라이선스: CC Attribution';
             } else if(model == 'Sitting_Korean_Buddha_WIP'){
@@ -231,8 +255,10 @@
                 document.getElementById('description_text').innerText = '세 개의 뿔이 있는 얼굴이라는 뜻의 공룡으로 약 7000만년 전, 백악기 후기 마스트리흐트절 당시 미국 캐나다 지역에 처음 나타난 초식성 각룡류 공룡의 한 속이다.\n라이선스: CC Attribution';
             } else if(model == 'Moai'){
                 document.getElementById('description_text').innerText = '칠레 이스터 섬에 있는 사람 얼굴 모양의 석상이다. 크기 3.5 미터, 무게 20 톤가량 되는 것이 많지만, 큰 것은 20 미터에 90 톤까지 되는 것도 있다.\n라이선스: CC Attribution';
-            } else if(model == 'Statuette_Of_A_Jackal'){
+            } else if(model == 'Lion_Statue'){
                 document.getElementById('description_text').innerText = '체코에서 공수되어온 사암으로 만들어진 사자석상이다.';
+            } else if(model == 'Queen_From_The_Lewis_Chess_Pieces'){
+                document.getElementById('description_text').innerText = '스코트랜드 고고학 역사상 가장 귀중한 발견 중 하나로 꼽히는 루이스 체스말';
             } else {
                 document.getElementById('description_text').innerText = model;
             }
